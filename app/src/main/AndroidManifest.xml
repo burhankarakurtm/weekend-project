@@ -3,6 +3,7 @@
     package="com.burhan.karakurt.weekend.project">
 
     <application
+        android:name=".WeekendProject"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
