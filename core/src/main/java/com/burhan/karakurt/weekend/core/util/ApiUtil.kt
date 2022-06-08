@@ -8,7 +8,7 @@ object ApiUtil {
 
     const val PUBLIC_API_KEY = "c717856b55cf4b56bdded0f4017a23fd"
     const val PRIVATE_API_KEY = "e17bb8389bf09360b7fca93842fbc924e2c3b0a6"
-    const val TIME_STAMP = "12345654345676543"
+    const val TIME_STAMP = "4321456"
 
     fun getMd5Key(): String? {
         var hash: String? = null

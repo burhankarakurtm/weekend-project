@@ -5,4 +5,4 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MarvelCharacterModel(@SerializedName("name") var name: String?) : Parcelable
+data class MarvelCharacterModel(@SerializedName("name") var name: String?,@SerializedName("thumbnail") var thumbnail: String?) : Parcelable

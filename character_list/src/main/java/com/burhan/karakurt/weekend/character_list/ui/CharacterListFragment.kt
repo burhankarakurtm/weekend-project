@@ -22,7 +22,7 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_character_list
 
-    fun setUpViewModel() {
+    private fun setUpViewModel() {
         with(characterListViewModel) {
             getLayoutViewState().observe(viewLifecycleOwner) {
                 binding.layoutViewState = it
