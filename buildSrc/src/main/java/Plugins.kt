@@ -2,6 +2,7 @@
 
 object Plugins {
     const val ANDROID_APPLICATION_PLUGIN = "com.android.application"
+    const val ANDROID_LIBRARY = "com.android.library"
     const val KOTLIN_ANDROID_PLUGIN = "org.jetbrains.kotlin.android"
     const val KOTLIN_KAPT_PLUGIN = "kotlin-kapt"
     const val KOTLIN_PARCELIZE_PLUGIN = "kotlin-parcelize"
