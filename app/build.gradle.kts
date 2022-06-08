@@ -45,5 +45,6 @@ android {
 }
 
 dependencies {
+    api(project(Modules.CHARACTER_LIST))
     addAppDependencies()
 }
