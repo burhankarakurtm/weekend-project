@@ -2,12 +2,15 @@
 
 object Dependencies {
     const val CORE_KTX = "androidx.core:core-ktx:${Version.CORE_KTX_VERSION}"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Version.FRAGMENT_KTX_VERSION}"
+
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Version.APPCOMPAT_VERSION}"
     const val MATERIAL = "com.google.android.material:material:${Version.MATERIAL_VERSION}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Version.CONSTRAINT_LAYOUT_VERSION}"
     const val LIFECYCLE_LIVEDATA_KTX = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.LIFECYCLE_VERSION}"
     const val LIFECYCLE_VIEWMODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.LIFECYCLE_VERSION}"
     const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${Version.NAVIGATION_VERSION}"
+    const val NAVIGATION_FEATURE = "androidx.navigation:navigation-dynamic-features-fragment:${Version.NAVIGATION_VERSION}"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${Version.NAVIGATION_VERSION}"
     const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Version.SWIPE_REFRESH_LAYOUT_VERSION}"
     const val MOSHI_KOTLIN = "com.squareup.moshi:moshi-kotlin:${Version.MOSHI_VERSION}"

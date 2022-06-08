@@ -10,6 +10,7 @@ object Version {
     const val GRADLE_VERSIONS_PLUGIN_VERSION = "0.39.0"
 
     const val CORE_KTX_VERSION = "1.7.0"
+    const val FRAGMENT_KTX_VERSION = "1.4.0"
     const val APPCOMPAT_VERSION = "1.4.1"
     const val MATERIAL_VERSION = "1.5.0"
     const val CONSTRAINT_LAYOUT_VERSION = "2.1.3"
