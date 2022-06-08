@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class MarvelRepositoryImpl @Inject constructor(private val marvelDataSource: MarvelDataSource) :
     MarvelRepository, BaseRepository() {
-    override suspend fun fetchCharacterList(
+    override fun fetchCharacterList(
         apiKey: String?,
         hash: String?
     ): Flow<State<MarvelCharacterResponse>> = apiCall {

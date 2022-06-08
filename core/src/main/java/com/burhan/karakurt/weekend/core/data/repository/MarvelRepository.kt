@@ -5,7 +5,7 @@ import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterResponse
 import kotlinx.coroutines.flow.Flow
 
 interface MarvelRepository {
-    suspend fun fetchCharacterList(
+    fun fetchCharacterList(
         apiKey: String?,
         hash: String?
     ): Flow<State<MarvelCharacterResponse>>
