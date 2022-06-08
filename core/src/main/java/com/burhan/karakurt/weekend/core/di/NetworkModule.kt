@@ -1,5 +1,6 @@
 package com.burhan.karakurt.weekend.core.di
 
+import com.burhan.karakurt.weekend.core.data.remote.MarvelService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,16 +16,17 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = ""
+    private const val BASE_URL = "https://gateway.marvel.com/"
+
 
     @Singleton
     @Provides
     fun provideRetrofit(
-        dogApiUrl: String,
+        apiUrl: String,
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit = Retrofit.Builder()
-        .baseUrl(dogApiUrl)
+        .baseUrl(apiUrl)
         .addConverterFactory(gsonConverterFactory)
         .client(okHttpClient)
         .build()
@@ -52,4 +54,10 @@ object NetworkModule {
         HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BASIC)
         }
+
+    @Provides
+    fun provideMarvelService(
+        retrofit: Retrofit
+    ): MarvelService = retrofit.create(MarvelService::class.java)
+
 }
