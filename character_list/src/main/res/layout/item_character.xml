@@ -6,6 +6,11 @@
         <variable
             name="characterModel"
             type="com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel" />
+
+        <variable
+            name="itemClickListener"
+            type="com.burhan.karakurt.weekend.character_list.ui.adapter.ItemAdapterClickListener" />
+
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/bg_character_item"
+        android:onClick="@{()->itemClickListener.onClickItem(characterModel)}"
         android:orientation="vertical">
 
         <ImageView

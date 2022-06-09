@@ -12,17 +12,21 @@ class CharacterListAdapter : ListAdapter<MarvelCharacterModel, CharacterListView
         return CharacterListViewHolder.create(parent)
     }
 
+    private var itemAdapterClickListener: ItemAdapterClickListener? = null
+
     companion object {
         @JvmStatic
-        @BindingAdapter(value = ["android:setCharacterList"])
+        @BindingAdapter(value = ["android:setCharacterList", "android:setItemAdapterClickListener"])
         fun setCharacterList(
             view: RecyclerView?,
             characterList: List<MarvelCharacterModel>?,
+            itemAdapterClickListener: ItemAdapterClickListener?
         ) {
             view?.let {
                 if (it.adapter == null) {
                     it.adapter = CharacterListAdapter()
                 }
+                (it.adapter as CharacterListAdapter).addClickListener(itemAdapterClickListener)
                 (it.adapter as CharacterListAdapter).submitList(characterList)
                 (it.adapter as CharacterListAdapter).notifyDataSetChanged()
             }
@@ -46,7 +50,11 @@ class CharacterListAdapter : ListAdapter<MarvelCharacterModel, CharacterListView
         }
     }
 
+    fun addClickListener(itemAdapterClickListener: ItemAdapterClickListener?) {
+        this.itemAdapterClickListener = itemAdapterClickListener
+    }
+
     override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
-        holder.bindData(getItem(position))
+        holder.bindData(getItem(position), itemAdapterClickListener)
     }
 }

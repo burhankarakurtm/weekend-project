@@ -2,17 +2,21 @@ package com.burhan.karakurt.weekend.character_list.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.burhan.karakurt.weekend.character_list.R
 import com.burhan.karakurt.weekend.character_list.databinding.FragmentCharacterListBinding
+import com.burhan.karakurt.weekend.character_list.ui.adapter.ItemAdapterClickListener
 import com.burhan.karakurt.weekend.common.base.ui.BaseFragment
 import com.burhan.karakurt.weekend.common.util.EndlessRecyclerViewScrollListener
+import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>() {
+class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>(),
+    ItemAdapterClickListener {
 
 
     private val characterListViewModel: CharacterListViewModel by viewModels()
@@ -34,6 +38,7 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>() {
                 //handle error layout
             }
             getCharacterListViewState().observe(viewLifecycleOwner) {
+                it.itemAdapterClickListener = this@CharacterListFragment
                 binding.characterListViewState = it
                 binding.executePendingBindings()
                 hasMore = it.getCharacterList().isNotEmpty()
@@ -50,6 +55,11 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>() {
                 if (hasMore) characterListViewModel.getCharacterList(page + 1)
             }
         })
+    }
+
+    override fun onClickItem(characterModel: MarvelCharacterModel) {
+        Toast.makeText(requireContext(), characterModel.name, Toast.LENGTH_LONG)
+            .show()
     }
 
 }

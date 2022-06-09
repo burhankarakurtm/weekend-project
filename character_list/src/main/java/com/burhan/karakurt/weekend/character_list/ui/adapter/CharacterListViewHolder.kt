@@ -9,8 +9,12 @@ import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel
 class CharacterListViewHolder(private val binding: ItemCharacterBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bindData(characterModel: MarvelCharacterModel) {
+    fun bindData(
+        characterModel: MarvelCharacterModel,
+        itemAdapterClickListener: ItemAdapterClickListener?
+    ) {
         binding.characterModel = characterModel
+        binding.itemClickListener = itemAdapterClickListener
         binding.executePendingBindings()
     }
 
