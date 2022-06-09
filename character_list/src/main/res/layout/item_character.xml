@@ -12,11 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:background="@drawable/bg_character_item"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_no_connection"
             bind:imageUrl="@{characterModel.thumbnail.toString()}" />
 
@@ -24,9 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_margin="8dp"
+            android:gravity="center"
             android:text="@{characterModel.name}"
-            android:textSize="24sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </layout>
