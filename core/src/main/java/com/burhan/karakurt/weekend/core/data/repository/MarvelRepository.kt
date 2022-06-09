@@ -7,6 +7,9 @@ import kotlinx.coroutines.flow.Flow
 interface MarvelRepository {
     fun fetchCharacterList(
         apiKey: String?,
-        hash: String?
+        hash: String?,
+        timeStamp: String,
+        limit: Int,
+        offset: Int
     ): Flow<State<MarvelCharacterResponse>>
 }

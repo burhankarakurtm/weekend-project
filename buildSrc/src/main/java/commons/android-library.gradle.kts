@@ -27,5 +27,5 @@ dependencies {
     implementation(Dependencies.LOTTIE)
     implementation(Dependencies.RETROFIT)
     kapt(Dependencies.HILT_ANDROID_COMPILER)
-    kapt(Dependencies.GLIDE_COMPILER)
+    annotationProcessor(Dependencies.GLIDE_COMPILER)
 }

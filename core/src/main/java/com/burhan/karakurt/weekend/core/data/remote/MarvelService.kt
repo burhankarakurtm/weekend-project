@@ -6,10 +6,13 @@ import retrofit2.http.Query
 
 interface MarvelService {
 
-    @GET("/v1/public/characters?ts=4321456")
+    @GET("/v1/public/characters?")
     suspend fun getCharacterList(
         @Query("apikey") apiKey: String?,
-        @Query("hash") hash: String?
+        @Query("hash") hash: String?,
+        @Query("ts") timeStamp: String,
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int
     ): MarvelCharacterResponse
 
 }

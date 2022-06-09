@@ -10,8 +10,11 @@ class MarvelRepositoryImpl @Inject constructor(private val marvelDataSource: Mar
     MarvelRepository, BaseRepository() {
     override fun fetchCharacterList(
         apiKey: String?,
-        hash: String?
+        hash: String?,
+        timeStamp: String,
+        limit: Int,
+        offset: Int
     ): Flow<State<MarvelCharacterResponse>> = apiCall {
-        marvelDataSource.fetchCharacterList(apiKey, hash)
+        marvelDataSource.fetchCharacterList(apiKey, hash,timeStamp, limit, offset)
     }
 }

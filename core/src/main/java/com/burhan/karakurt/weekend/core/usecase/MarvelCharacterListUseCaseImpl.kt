@@ -12,9 +12,12 @@ class MarvelCharacterListUseCaseImpl @Inject constructor(private val marvelRepos
     MarvelCharacterListUseCase {
     override fun getCharacterList(
         apiKey: String?,
-        hash: String?
+        hash: String?,
+        timeStamp: String,
+        limit: Int,
+        offset: Int
     ): Flow<State<List<MarvelCharacterModel>>> =
-        marvelRepository.fetchCharacterList(apiKey, hash).map { state ->
+        marvelRepository.fetchCharacterList(apiKey, hash, timeStamp, limit, offset).map { state ->
             state.map { response ->
                 response.data.results
             }

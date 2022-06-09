@@ -24,12 +24,18 @@ class CharacterListViewModel @Inject constructor(private val marvelCharacterList
 
 
     init {
-        getCharacterList()
+        getCharacterList(1)
     }
 
-    private fun getCharacterList() {
+    private fun getCharacterList(offset: Int) {
         marvelCharacterListUseCase
-            .getCharacterList(ApiUtil.PUBLIC_API_KEY, ApiUtil.getMd5Key())
+            .getCharacterList(
+                ApiUtil.PUBLIC_API_KEY,
+                ApiUtil.getMd5Key(),
+                ApiUtil.TIME_STAMP,
+                30,
+                offset
+            )
             .doOnSuccess { characterListViewStateLiveData.value = CharacterListViewState(it) }
             .onEach { state -> layoutViewStateLiveData.value = LayoutViewState(state) }
             .launchIn(viewModelScope)

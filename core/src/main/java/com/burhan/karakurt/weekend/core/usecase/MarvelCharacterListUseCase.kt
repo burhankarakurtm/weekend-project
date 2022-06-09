@@ -5,6 +5,11 @@ import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel
 import kotlinx.coroutines.flow.Flow
 
 interface MarvelCharacterListUseCase {
-    fun getCharacterList(   apiKey: String?,
-                            hash: String?): Flow<State<List<MarvelCharacterModel>>>
+    fun getCharacterList(
+        apiKey: String?,
+        hash: String?,
+        timeStamp: String,
+        limit: Int,
+        offset: Int
+    ): Flow<State<List<MarvelCharacterModel>>>
 }

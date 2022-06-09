@@ -7,6 +7,9 @@ import javax.inject.Inject
 class MarvelDataSource @Inject constructor(private val marvelService: MarvelService) {
     suspend fun fetchCharacterList(
         apiKey: String?,
-        hash: String?
-    ): MarvelCharacterResponse = marvelService.getCharacterList(apiKey, hash)
+        hash: String?,
+        timeStamp: String,
+        limit: Int,
+        offset: Int
+    ): MarvelCharacterResponse = marvelService.getCharacterList(apiKey, hash,timeStamp, limit, offset)
 }
