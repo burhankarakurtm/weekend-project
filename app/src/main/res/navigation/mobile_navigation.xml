@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_character_list"
         android:name="com.burhan.karakurt.weekend.character_list.ui.CharacterListFragment"
-        android:label="Detail"
+        android:label="Character List"
         tools:layout="@layout/fragment_character_list" />
 
 

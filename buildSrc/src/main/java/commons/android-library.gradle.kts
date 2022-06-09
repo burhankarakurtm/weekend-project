@@ -23,6 +23,7 @@ dependencies {
     api(Dependencies.APPCOMPAT)
     api(Dependencies.CORE_KTX)
     implementation(Dependencies.GLIDE)
+    implementation(Dependencies.MATERIAL)
     implementation(Dependencies.HILT_ANDROID)
     implementation(Dependencies.LOTTIE)
     implementation(Dependencies.RETROFIT)
