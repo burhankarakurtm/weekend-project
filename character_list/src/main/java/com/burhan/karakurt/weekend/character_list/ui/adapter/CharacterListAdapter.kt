@@ -38,7 +38,7 @@ class CharacterListAdapter : ListAdapter<MarvelCharacterModel, CharacterListView
                 oldItem: MarvelCharacterModel,
                 newItem: MarvelCharacterModel
             ): Boolean {
-                return oldItem == newItem
+                return oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(
