@@ -14,6 +14,7 @@ object Version {
     const val APPCOMPAT_VERSION = "1.4.1"
     const val MATERIAL_VERSION = "1.5.0"
     const val CONSTRAINT_LAYOUT_VERSION = "2.1.3"
+    const val PAGING_VERSION = "3.1.1"
     const val LIFECYCLE_VERSION = "2.4.1"
     const val NAVIGATION_VERSION = "2.4.1"
     const val SWIPE_REFRESH_LAYOUT_VERSION = "1.1.0"

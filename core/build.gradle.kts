@@ -7,5 +7,6 @@ dependencies {
     implementation(Dependencies.OK_HTTP3)
     implementation(Dependencies.MOSHI_KOTLIN)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)
+    implementation(Dependencies.PAGING)
 
 }

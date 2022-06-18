@@ -24,8 +24,6 @@
             android:id="@+id/characterListRV"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:setCharacterList="@{characterListViewState.characterList}"
-            android:setItemAdapterClickListener="@{characterListViewState.itemAdapterClickListener}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

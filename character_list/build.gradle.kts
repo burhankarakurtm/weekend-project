@@ -12,4 +12,5 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FEATURE)
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.PAGING)
 }
