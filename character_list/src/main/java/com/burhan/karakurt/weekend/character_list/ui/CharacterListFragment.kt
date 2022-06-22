@@ -19,6 +19,7 @@ import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -31,15 +32,20 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.layoutViewState = LayoutViewState(State.Loading)
+        binding.executePendingBindings()
         setUpViewModel()
-        setEndlessLayout()
+        setUpLayoutManagerLayout()
         binding.characterListRV.adapter = adapter
+        adapter.addClickListener(this@CharacterListFragment)
     }
 
 
     override fun getLayoutId(): Int = R.layout.fragment_character_list
 
     private fun setUpViewModel() {
+
+
         with(characterListViewModel) {
             getLayoutViewState().observe(viewLifecycleOwner) {
                 binding.layoutViewState = it
@@ -50,19 +56,13 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>(),
                 fetchCharacterListFlow().collect {
                     binding.layoutViewState = LayoutViewState(State.Success(null))
                     adapter.submitData(it)
-
+                    binding.executePendingBindings()
                 }
-            }
-            getCharacterListViewState().observe(viewLifecycleOwner) {
-                it.itemAdapterClickListener = this@CharacterListFragment
-                adapter.addClickListener(it.itemAdapterClickListener)
-                binding.characterListViewState = it
-                binding.executePendingBindings()
             }
         }
     }
 
-    private fun setEndlessLayout() {
+    private fun setUpLayoutManagerLayout() {
         val layoutManager = GridLayoutManager(requireContext(), 3)
         binding.characterListRV.layoutManager = layoutManager
     }
