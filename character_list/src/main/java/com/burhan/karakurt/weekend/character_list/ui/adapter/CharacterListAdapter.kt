@@ -23,14 +23,14 @@ class CharacterListAdapter :
                 oldItem: MarvelCharacterModel,
                 newItem: MarvelCharacterModel
             ): Boolean {
-                return oldItem.name == newItem.name
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(
                 oldItem: MarvelCharacterModel,
                 newItem: MarvelCharacterModel
             ): Boolean {
-                return oldItem == newItem
+                return oldItem.name == newItem.name
             }
         }
     }

@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.burhan.karakurt.weekend.character_list.R
 import com.burhan.karakurt.weekend.character_list.databinding.FragmentCharacterListBinding
 import com.burhan.karakurt.weekend.character_list.ui.adapter.CharacterListAdapter
@@ -14,12 +13,9 @@ import com.burhan.karakurt.weekend.character_list.ui.adapter.ItemAdapterClickLis
 import com.burhan.karakurt.weekend.common.base.data.State
 import com.burhan.karakurt.weekend.common.base.ui.BaseFragment
 import com.burhan.karakurt.weekend.common.base.ui.LayoutViewState
-import com.burhan.karakurt.weekend.common.util.EndlessRecyclerViewScrollListener
 import com.burhan.karakurt.weekend.core.data.model.MarvelCharacterModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -44,13 +40,13 @@ class CharacterListFragment : BaseFragment<FragmentCharacterListBinding>(),
     override fun getLayoutId(): Int = R.layout.fragment_character_list
 
     private fun setUpViewModel() {
-
-
         with(characterListViewModel) {
             getLayoutViewState().observe(viewLifecycleOwner) {
                 binding.layoutViewState = it
                 binding.executePendingBindings()
                 //handle error layout
+                Toast.makeText(requireContext(), it.getErrorMessage(requireContext()), Toast.LENGTH_LONG)
+                    .show()
             }
             lifecycleScope.launch {
                 fetchCharacterListFlow().collect {
